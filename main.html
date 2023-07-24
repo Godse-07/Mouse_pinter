@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Trail</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="container">
+            <canvas id="trailCanvas" width="800" height="600" style="margin:0;padding:0;z-index:500; border: 1px solid #000;"></canvas>
+        </div>
+    </div>
+    <script src="trail.js"></script>
+    <script type="text/javascript">
+        var trail = null;
+        function documentMouseMoveHandler(event) {
+            trail.position.x = event.clientX;
+            trail.position.y = event.clientY;
+        }
+        document.addEventListener('mousemove', documentMouseMoveHandler, false);
+        document.addEventListener("DOMContentLoaded", function (event) {
+            trail = new trailing({});
+            trail.init();
+        });
+    </script>
+</body>
+</html>
